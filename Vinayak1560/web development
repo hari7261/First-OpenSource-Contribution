@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced To-Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button id="addTaskBtn">Add</button>
+        </div>
+        <div class="filter-container">
+            <button class="filter-btn" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+        </div>
+        <ul id="taskList"></ul>
+        <button id="clearTasks">Clear All</button>
+    </div>
+</body>
+</html>
+
