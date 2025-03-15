@@ -1,0 +1,196 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  /* Container for the app */
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Heading */
+  h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Search container */
+  .search-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Input field */
+  input[type="text"] {
+    width: 70%;
+    padding: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  
+  input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  input[type="text"]:focus {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Search button */
+  button {
+    width: 30%;
+    padding: 12px;
+    border: none;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+  }
+  
+  /* Weather info container */
+  #weatherInfo {
+    margin-top: 20px;
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  /* Weather card */
+  .weather-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .weather-card h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .weather-card .temperature {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 10px 0;
+    color: #fff;
+  }
+  
+  .weather-card .weather-description {
+    font-size: 18px;
+    margin: 10px 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .weather-card img {
+    width: 80px;
+    height: 80px;
+    margin-top: 10px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  }
+  
+  .weather-card .details {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .weather-card .details p {
+    font-size: 14px;
+    margin: 8px 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .weather-card .details span {
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  /* Error message */
+  .error {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Background animation */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 10.01%);
+    background-size: 20px 20px;
+    animation: moveBackground 20s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes moveBackground {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-200px);
+    }
+  }
