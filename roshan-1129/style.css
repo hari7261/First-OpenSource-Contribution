@@ -1,0 +1,111 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Title styling */
+  h2 {
+    color: #4CAF50;
+  }
+  
+  /* Input field styling */
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #4CAF50;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:active {
+    background-color: #388e3c;
+  }
+  
+  /* Container for book list */
+  .book-list {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Styling for each book item */
+  .book-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #fff;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Book name styling */
+  .book-item span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1;
+    word-wrap: break-word;
+  }
+  
+  /* Update and Delete buttons */
+  .book-item button {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #ff9800;
+    color: white;
+    margin-left: 5px;
+  }
+  
+  .book-item button:hover {
+    background-color: #fb8c00;
+  }
+  
+  .book-item button:active {
+    background-color: #f57c00;
+  }
+  
+  button.delete {
+    background-color: #f44336;
+  }
+  
+  button.delete:hover {
+    background-color: #e53935;
+  }
+  
+  button.delete:active {
+    background-color: #d32f2f;
+  }
+  

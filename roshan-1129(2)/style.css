@@ -1,0 +1,94 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Title styling */
+  h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  /* Form container styling */
+  .form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #4CAF50;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button:active {
+    background-color: #388e3c;
+  }
+  
+  /* Student list container */
+  .student-list {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Student details display */
+  .student-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #fff;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .student-item span {
+    font-size: 16px;
+    color: #333;
+    flex-grow: 1;
+    word-wrap: break-word;
+  }
+  
