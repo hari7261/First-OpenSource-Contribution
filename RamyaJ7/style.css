@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML and CSS Page</title>
+    <style>
+        /* CSS styling goes here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to My Styled Page</h1>
+        <p>This is a simple webpage using CSS for styling. Check out the styling applied to this page.</p>
+        
+        <p>Here are some links you can visit:</p>
+        <ul>
+            <li><a href="https://www.example.com" target="_blank">Visit Example Website</a></li>
+            <li><a href="https://www.google.com" target="_blank">Visit Google</a></li>
+        </ul>
+
+        <h3>Image Example:</h3>
+        <img src="https://via.placeholder.com/300" alt="Placeholder Image">
+
+        <p>Enjoy learning CSS and HTML!</p>
+    </div>
+
+</body>
+</html>
