@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup and Login Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: url('darren-nunis-cxE7SXKnzv0-unsplash.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .auth-container {
+      max-width: 400px;
+      width: 100%;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transform: perspective(1000px) rotateY(10deg);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .auth-container:hover {
+      transform: perspective(1000px) rotateY(0deg);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+    .auth-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50; /* Dark blue-gray */
+      font-weight: bold;
+    }
+    .form-control {
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #bdc3c7; /* Light gray */
+      padding: 10px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    }
+    .form-control:focus {
+      border-color: #3498db; /* Bright blue */
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+    }
+    .btn-auth {
+      width: 100%;
+      background: linear-gradient(45deg, #3498db, #2980b9); /* Blue gradient */
+      color: #fff;
+      border: none;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn-auth:hover {
+      background: linear-gradient(45deg, #2980b9, #3498db); /* Reverse gradient on hover */
+    }
+    .text-center {
+      color: #34495e; /* Dark blue-gray */
+    }
+    .text-center a {
+      color: #3498db; /* Bright blue */
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .text-center a:hover {
+      text-decoration: underline;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Signup Container -->
+  <div class="auth-container" id="signupContainer">
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <div class="form-group">
+        <input type="text" class="form-control" id="fullName" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="password" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+      </div>
+      <button type="submit" class="btn btn-auth">Sign Up</button>
+    </form>
+    <div class="text-center mt-3">
+      <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+    </div>
+  </div>
+
+  <!-- Login Container -->
+  <div class="auth-container hidden" id="loginContainer">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <input type="email" class="form-control" id="loginEmail" placeholder="Email Address" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn btn-auth">Login</button>
+    </form>
+    <div class="text-center mt-3">
+      <p>Don't have an account? <a href="#" id="signupLink">Sign Up</a></p>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script>
+    // Toggle between Signup and Login forms
+    document.getElementById('loginLink').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('signupContainer').classList.add('hidden');
+      document.getElementById('loginContainer').classList.remove('hidden');
+    });
+
+    document.getElementById('signupLink').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('loginContainer').classList.add('hidden');
+      document.getElementById('signupContainer').classList.remove('hidden');
+    });
+
+    // Signup Form Submission
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form values
+      const fullName = document.getElementById('fullName').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      // Simple validation
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      // Simulate successful signup
+      alert(`Signup successful!\nName: ${fullName}\nEmail: ${email}`);
+      // You can add AJAX or fetch() here to send data to a server
+    });
+
+    // Login Form Submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form values
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      // Simulate successful login
+      alert(`Login successful!\nEmail: ${email}`);
+      // You can add AJAX or fetch() here to send data to a server
+    });
+  </script>
+</body>
+</html>
