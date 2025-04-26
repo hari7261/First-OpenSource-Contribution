@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Upload a Book</h1>
+
+<!-- Flash messages display -->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert alert-danger">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="book" class="form-label">Select PDF Book (max 50MB)</label>
+        <input type="file" class="form-control" id="book" name="book" accept=".pdf" required>
+        <div class="form-text">Only PDF files are accepted</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>
+{% endblock %}

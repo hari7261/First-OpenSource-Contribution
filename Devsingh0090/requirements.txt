@@ -1,0 +1,6 @@
+flask==2.0.1
+PyPDF2==3.0.1
+google-generativeai
+matplotlib
+networkx
+python-dotenv
