@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Chat with Your Book</h1>
+<div class="card">
+    <div class="card-header">
+        Ask questions about the book
+    </div>
+    <div class="card-body">
+        <div id="chat-container" style="height: 400px; overflow-y: scroll; margin-bottom: 20px; border: 1px solid #ddd; padding: 10px;">
+            <!-- Chat messages will appear here -->
+        </div>
+        <form id="question-form">
+            <input type="hidden" id="book-id" value="{{ book_id }}">
+            <div class="input-group">
+                <input type="text" id="question-input" class="form-control" placeholder="Ask something about the book..." required>
+                <button type="submit" class="btn btn-primary">Ask</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+document.getElementById('question-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const bookId = document.getElementById('book-id').value;
+    const question = document.getElementById('question-input').value;
+    const chatContainer = document.getElementById('chat-container');
+    
+    // Add user question to chat
+    chatContainer.innerHTML += `<div class="mb-2"><strong>You:</strong> ${question}</div>`;
+    
+    // Clear input
+    document.getElementById('question-input').value = '';
+    
+    // Show loading indicator
+    chatContainer.innerHTML += `<div class="mb-2"><em>AI is thinking...</em></div>`;
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+    
+    // Send question to server
+    fetch('/ask', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            book_id: bookId,
+            question: question
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Remove loading indicator
+        chatContainer.querySelector('div:last-child').remove();
+        
+        if (data.error) {
+            chatContainer.innerHTML += `<div class="mb-2 text-danger"><strong>Error:</strong> ${data.error}</div>`;
+        } else {
+            chatContainer.innerHTML += `<div class="mb-2"><strong>AI:</strong> ${data.answer}</div>`;
+        }
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    })
+    .catch(error => {
+        chatContainer.querySelector('div:last-child').remove();
+        chatContainer.innerHTML += `<div class="mb-2 text-danger"><strong>Error:</strong> ${error.message}</div>`;
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    });
+});
+</script>
+{% endblock %}

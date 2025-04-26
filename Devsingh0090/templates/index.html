@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Chat Assistant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="app-title">
+                <i class="fas fa-book-reader"></i>
+                <h1>PDF Chat</h1>
+            </div>
+            <div class="upload-section">
+                <label class="file-upload">
+                    <i class="fas fa-file-pdf"></i>
+                    <span id="upload-label">Upload PDF</span>
+                    <input type="file" id="pdf-input" accept=".pdf" hidden required>
+                </label>
+                <div id="upload-status" class="upload-status hidden">
+                    <div class="file-info">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="file-name"></span>
+                    </div>
+                    <button class="change-file" onclick="document.getElementById('pdf-input').click()">
+                        <i class="fas fa-exchange-alt"></i>
+                    </button>
+                </div>
+                <small>Max size: 50MB</small>
+            </div>
+            <button id="clear-btn" class="clear-btn">
+                <i class="fas fa-trash"></i> Clear Chat
+            </button>
+        </div>
+
+        <div class="main-content">
+            <div class="assistant-avatar" id="avatar-container">
+                <img src="static/images/assistant-avatar.png" alt="AI Assistant" class="avatar-image">
+                <div class="speaking-indicator">Speaking...</div>
+                <div class="voice-controls">
+                    <button id="speak-button" class="voice-btn" title="Listen to response">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <button id="stop-button" class="voice-btn" title="Stop speaking">
+                        <i class="fas fa-stop"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            
+            <form id="chat-form" class="chat-input-form">
+                <input type="text" id="question-input" 
+                    placeholder="Ask a question about the PDF..." required>
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
